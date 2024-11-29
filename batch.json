@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "4c6782f5-351f-4d02-9fe1-5e75e5df4f71",
+		"name": "Quartz Scheduler API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Schedule Job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/quartz/schedule?jobName=myJob&groupName=myGroup&cronExpression=0/30 * * * * ?",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"quartz",
+						"schedule"
+					],
+					"query": [
+						{
+							"key": "jobName",
+							"value": "myJob"
+						},
+						{
+							"key": "groupName",
+							"value": "myGroup"
+						},
+						{
+							"key": "cronExpression",
+							"value": "0/30 * * * * ?"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Job Schedule",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/quartz/update?jobName=myJob&groupName=myGroup&newCronExpression=0 0/1 * * * ?",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"quartz",
+						"update"
+					],
+					"query": [
+						{
+							"key": "jobName",
+							"value": "myJob"
+						},
+						{
+							"key": "groupName",
+							"value": "myGroup"
+						},
+						{
+							"key": "newCronExpression",
+							"value": "0 0/1 * * * ?"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Job",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/quartz/delete?jobName=myJob&groupName=myGroup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"quartz",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "jobName",
+							"value": "myJob"
+						},
+						{
+							"key": "groupName",
+							"value": "myGroup"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/triggerScheduledJob?jobName=importCustomersJob",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"triggerScheduledJob"
+					],
+					"query": [
+						{
+							"key": "jobName",
+							"value": "importCustomersJob"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trigger Schedule Job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/startJob?jobName=importCustomersJob",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"startJob"
+					],
+					"query": [
+						{
+							"key": "jobName",
+							"value": "importCustomersJob"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
